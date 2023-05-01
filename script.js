@@ -38,3 +38,19 @@ function showTask(){
     listContainer.innerHTML=localStorage.getItem("data");
 }
 showTask();
+
+function editTask() {
+    var taskList = document.getElementById("list-container");
+    var tasks = taskList.getElementsByTagName("li");
+    for (var i = 0; i < tasks.length; i++) {
+        tasks[i].addEventListener("click", function () {
+            var currentTask = this;
+            var newTaskName = prompt("Edit task name:", currentTask.innerHTML);
+            if (newTaskName !== null) {
+                currentTask.innerHTML = newTaskName;
+            }
+        });
+    }
+}
+
+editTask();
